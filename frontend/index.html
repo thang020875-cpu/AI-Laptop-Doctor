@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070b17">
+    <title>AI Laptop Doctor | Intelligent Diagnostics</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="background-grid" aria-hidden="true"></div>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <header class="topbar">
+        <a href="#" class="brand">
+            <div class="brand-icon">
+                <span>AI</span>
+                <i></i>
+            </div>
+            <div class="brand-text">
+                <strong>LAPTOP<span>DOCTOR</span></strong>
+                <small>INTELLIGENT SYSTEM DIAGNOSTICS</small>
+            </div>
+        </a>
+
+        <div class="system-status">
+            <span class="status-dot"></span>
+            <span>SYSTEM ONLINE</span>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="eyebrow">
+                    <span class="eyebrow-line"></span>
+                    NEXT-GEN PC HEALTH ANALYSIS
+                </div>
+
+                <h1>
+                    Hiểu máy tính.<br>
+                    <span>Chẩn đoán thông minh.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Trợ lý AI phân tích tình trạng laptop, phát hiện dấu hiệu bất thường
+                    và hướng dẫn xử lý từng bước.
+                </p>
+
+                <div class="hero-actions">
+                    <button id="scanButton" class="scan-button" onclick="scanLaptop()">
+                        <span class="scan-button-icon">⌕</span>
+                        <span>Kiểm tra laptop</span>
+                        <span class="button-arrow">↗</span>
+                    </button>
+
+                    <div class="scan-note">
+                        <span class="mini-pulse"></span>
+                        Phân tích dữ liệu hệ thống
+                    </div>
+                </div>
+
+                <div class="hero-metrics">
+                    <div class="hero-metric">
+                        <strong>01</strong>
+                        <span>QUÉT HỆ THỐNG</span>
+                    </div>
+                    <div class="hero-metric">
+                        <strong>02</strong>
+                        <span>PHÂN TÍCH AI</span>
+                    </div>
+                    <div class="hero-metric">
+                        <strong>03</strong>
+                        <span>ĐỀ XUẤT GIẢI PHÁP</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+                <div class="orbit orbit-outer"></div>
+                <div class="orbit orbit-middle"></div>
+                <div class="orbit orbit-inner"></div>
+
+                <div class="scanner-ring">
+                    <div class="scanner-sweep"></div>
+                    <div class="scanner-crosshair crosshair-top"></div>
+                    <div class="scanner-crosshair crosshair-bottom"></div>
+                    <div class="scanner-crosshair crosshair-left"></div>
+                    <div class="scanner-crosshair crosshair-right"></div>
+
+                    <div class="core-chip">
+                        <div class="chip-topline"></div>
+                        <div class="chip-symbol">AI</div>
+                        <div class="chip-caption">DIAGNOSTIC CORE</div>
+                        <div class="chip-bars">
+                            <span></span><span></span><span></span>
+                            <span></span><span></span><span></span>
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <span class="orbit-point point-one"></span>
+                    <span class="orbit-point point-two"></span>
+                    <span class="orbit-point point-three"></span>
+                </div>
+
+                <div class="floating-label label-cpu">
+                    <span class="label-icon">⌘</span>
+                    <div>
+                        <small>CPU ANALYSIS</small>
+                        <strong>PROCESSING</strong>
+                    </div>
+                </div>
+
+                <div class="floating-label label-ai">
+                    <span class="label-icon">✳</span>
+                    <div>
+                        <small>AI ENGINE</small>
+                        <strong>READY TO SCAN</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <div class="section-heading">
+                <div>
+                    <div class="section-kicker">SYSTEM OVERVIEW / 01</div>
+                    <h2>Tổng quan hệ thống</h2>
+                    <p>Các chỉ số sẽ được cập nhật sau khi quét laptop.</p>
+                </div>
+                <div class="live-badge">
+                    <span class="status-dot"></span>
+                    LIVE MONITOR
+                </div>
+            </div>
+
+            <div class="health-grid">
+                <article class="health-card health-card-primary">
+                    <div class="card-top">
+                        <span class="card-icon">◈</span>
+                        <span class="card-index">SYS / 01</span>
+                    </div>
+                    <div class="card-label">Trạng thái hệ thống</div>
+                    <div id="healthStatus" class="card-value">Chưa quét</div>
+                    <div class="card-foot">
+                        <span class="card-indicator"></span>
+                        <span>System health</span>
+                    </div>
+                </article>
+
+                <article class="health-card">
+                    <div class="card-top">
+                        <span class="card-icon">⌁</span>
+                        <span class="card-index">AI / 02</span>
+                    </div>
+                    <div class="card-label">Vấn đề phát hiện</div>
+                    <div id="issueCount" class="card-value">--</div>
+                    <div class="card-foot">
+                        <span class="card-indicator"></span>
+                        <span>Detected issues</span>
+                    </div>
+                </article>
+
+                <article class="health-card">
+                    <div class="card-top">
+                        <span class="card-icon">◉</span>
+                        <span class="card-index">CPU / 03</span>
+                    </div>
+                    <div class="card-label">Mức sử dụng CPU</div>
+                    <div id="cpuUsage" class="card-value">--</div>
+                    <div class="metric-track"><span></span></div>
+                    <div class="card-foot"><span>Processor load</span></div>
+                </article>
+
+                <article class="health-card">
+                    <div class="card-top">
+                        <span class="card-icon">▦</span>
+                        <span class="card-index">RAM / 04</span>
+                    </div>
+                    <div class="card-label">Bộ nhớ RAM</div>
+                    <div id="ramUsage" class="card-value">--</div>
+                    <div class="metric-track"><span></span></div>
+                    <div class="card-foot"><span>Memory usage</span></div>
+                </article>
+
+                <article class="health-card">
+                    <div class="card-top">
+                        <span class="card-icon">♨</span>
+                        <span class="card-index">CPU / 05</span>
+                    </div>
+                    <div class="card-label">Nhiệt độ CPU</div>
+                    <div id="cpuTemp" class="card-value">--</div>
+                    <div class="card-foot"><span>Thermal monitoring</span></div>
+                </article>
+
+                <article class="health-card">
+                    <div class="card-top">
+                        <span class="card-icon">❖</span>
+                        <span class="card-index">GPU / 06</span>
+                    </div>
+                    <div class="card-label">Nhiệt độ GPU</div>
+                    <div id="gpuTemp" class="card-value">--</div>
+                    <div class="card-foot"><span>Graphics monitoring</span></div>
+                </article>
+
+                <article class="health-card">
+                    <div class="card-top">
+                        <span class="card-icon">▤</span>
+                        <span class="card-index">SSD / 07</span>
+                    </div>
+                    <div class="card-label">Dung lượng ổ đĩa</div>
+                    <div id="diskUsage" class="card-value">--</div>
+                    <div class="metric-track"><span></span></div>
+                    <div class="card-foot"><span>Storage usage</span></div>
+                </article>
+
+                <article class="health-card">
+                    <div class="card-top">
+                        <span class="card-icon">ϟ</span>
+                        <span class="card-index">PWR / 08</span>
+                    </div>
+                    <div class="card-label">Pin laptop</div>
+                    <div id="batteryLevel" class="card-value">--</div>
+                    <div class="card-foot"><span>Battery monitoring</span></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block diagnosis-section">
+            <div class="section-heading">
+                <div>
+                    <div class="section-kicker">DIAGNOSTIC ENGINE / 02</div>
+                    <h2>Kết quả chẩn đoán</h2>
+                    <p>Phân tích và đề xuất xử lý dựa trên dữ liệu hệ thống.</p>
+                </div>
+                <div class="section-symbol">✳</div>
+            </div>
+
+            <div id="diagnosis" class="diagnosis">
+                <div class="empty-state">
+                    <div class="empty-icon">⌕</div>
+                    <h3>Đang chờ dữ liệu hệ thống</h3>
+                    <p>Nhấn “Kiểm tra laptop” để bắt đầu quá trình phân tích.</p>
+                    <div class="empty-decoration">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block assistant-section">
+            <div class="section-heading">
+                <div>
+                    <div class="section-kicker">AI ASSISTANT / 03</div>
+                    <h2>Trợ lý chẩn đoán AI</h2>
+                    <p>Mô tả sự cố để nhận hướng dẫn kiểm tra và khắc phục.</p>
+                </div>
+                <div class="assistant-status">
+                    <span class="status-dot"></span>
+                    AI READY
+                </div>
+            </div>
+
+            <div class="chat-panel">
+                <div class="chat-panel-header">
+                    <div class="assistant-avatar">AI</div>
+                    <div class="assistant-identity">
+                        <strong>Laptop Doctor AI</strong>
+                        <span><i class="status-dot"></i> Trợ lý hỗ trợ kỹ thuật</span>
+                    </div>
+                    <div class="secure-label">● AI ASSIST</div>
+                </div>
+
+                <div id="chatBox" class="chat-box">
+                    <div class="chat-welcome">
+                        <div class="welcome-symbol">✳</div>
+                        <div>
+                            <strong>Xin chào! Mình có thể giúp gì cho bạn?</strong>
+                            <p>Hãy mô tả lỗi laptop, chẳng hạn máy nóng, chạy chậm, mất Wi-Fi hoặc không lên nguồn.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <div class="input-prefix">›</div>
+                    <input
+                        id="chatInput"
+                        type="text"
+                        placeholder="Mô tả sự cố laptop của bạn..."
+                        autocomplete="off"
+                        onkeydown="handleChatKey(event)"
+                    >
+                    <button class="send-button" onclick="sendChat()" aria-label="Gửi tin nhắn">
+                        <span>Gửi</span>
+                        <span>↗</span>
+                    </button>
+                </div>
+
+                <div class="chat-disclaimer">
+                    <span>✧</span>
+                    AI có thể cần thêm thông tin để đưa ra hướng dẫn chính xác.
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <a href="#" class="footer-brand">AI LAPTOP<span>DOCTOR</span></a>
+            <span>INTELLIGENT DIAGNOSTICS SYSTEM</span>
+            <span class="footer-version"><i></i> LOCAL ENVIRONMENT</span>
+        </footer>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

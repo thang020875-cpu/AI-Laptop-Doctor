@@ -1,0 +1,34 @@
+
+# API keys and environment variables
+.env
+.env.*
+!.env.example
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local machine reports and diagnostic data
+system_report.json
+agent/system_report.json
+*.log
+
+# IDE and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary tests and backup copies
+test_gemini.py
+*.bak
+*.bak_*
+*.backup
+*_backup_*.py
+*_before_*.py
